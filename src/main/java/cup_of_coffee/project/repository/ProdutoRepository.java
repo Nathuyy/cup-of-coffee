@@ -5,5 +5,4 @@ import cup_of_coffee.project.model.Produto;
 
 
 public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
-    
 }

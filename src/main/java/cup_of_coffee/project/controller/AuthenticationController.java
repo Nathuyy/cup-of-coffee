@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cup_of_coffee.project.domain.user.AuthenticationDTO;
+import cup_of_coffee.project.domain.user.LoginResposneDTO;
 import cup_of_coffee.project.domain.user.RegisterDTO;
+import cup_of_coffee.project.infra.security.TokenService;
 import cup_of_coffee.project.model.Cliente;
 import cup_of_coffee.project.repository.ClienteRepository;
 import jakarta.validation.Valid;
@@ -26,13 +28,18 @@ public class AuthenticationController {
     @Autowired 
     private ClienteRepository clienteRepository;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data) {
         var clienteSenha = new UsernamePasswordAuthenticationToken(data.email(), data.senha());
         var auth = this.authenticationManager.authenticate(clienteSenha);
 
+        var token = tokenService.generateToken((Cliente) auth.getPrincipal());
 
-        return ResponseEntity.ok().build();
+
+        return ResponseEntity.ok(new LoginResposneDTO(token));
     }
 
 

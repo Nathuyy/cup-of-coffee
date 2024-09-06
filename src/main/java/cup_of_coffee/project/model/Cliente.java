@@ -11,7 +11,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-@Entity
+@Table(name = "cliente")
+@Entity(name = "Cliente")
 public class Cliente implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +20,8 @@ public class Cliente implements UserDetails {
 
     private String email;
     private String senha;
+
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 
     @OneToMany(mappedBy = "cliente")

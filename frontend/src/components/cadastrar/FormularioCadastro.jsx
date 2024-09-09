@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from "react"
+import axios from "axios"
+import './FormularioCadastro.css'
 
 const FormularioCadastro = () => {
     const [email, setEmail] = useState("");
@@ -20,10 +21,8 @@ const FormularioCadastro = () => {
             setMessage("Usuário cadastrado com sucesso!");
         } catch (error) {
             if (error.response) {
-                // Se houver uma resposta do servidor com um erro
                 setMessage(error.response.data);
             } else {
-                // Caso não haja resposta do servidor (ex: erro de rede)
                 setMessage("Erro ao enviar formulário: " + error.message);
             }
             alert("Erro ao enviar formulário");
@@ -31,30 +30,32 @@ const FormularioCadastro = () => {
     };
 
     return (
-        <div>
-            <h2>Cadastro de Usuário</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label>Senha:</label>
-                    <input
-                        type="password"
-                        value={senha}
-                        onChange={(e) => setSenha(e.target.value)}
-                        required
-                    />
-                </div>
-                <button type="submit">Cadastrar</button>
-            </form>
-            {message && <p>{message}</p>}
+        <div className="login-page">
+            <div className="form">
+                <h2>Cadastro de Usuário</h2>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label>Email:</label>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label>Senha:</label>
+                        <input
+                            type="password"
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <button type="submit">Cadastrar</button>
+                </form>
+                {message && <p className="message">{message}</p>}
+            </div>
         </div>
     );
 };

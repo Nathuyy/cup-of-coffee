@@ -12,7 +12,7 @@ export default props => (
                 <Link to="/login">
                     <i className="fa-solid fa-right-to-bracket"></i> Login
                 </Link>
-                <Link to="/cadastro">
+                <Link to="/register">
                     <i className='fa-solid fa-user'></i> Cadastro
                 </Link>
             </nav>

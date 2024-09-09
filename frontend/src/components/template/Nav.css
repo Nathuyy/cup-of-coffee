@@ -1,0 +1,15 @@
+aside.menu-area {
+    background-color: #D2B48C;
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: #412A0B;
+    font-weight: 300;
+    padding: 15px;
+}
+
+.menu a:hover{
+    background-color: #A6814F;
+}

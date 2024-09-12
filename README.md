@@ -2,6 +2,8 @@
 
 Sistema para exemplificar a construção de uma cafeteria virtual!
 
+PROJETO EM ANDAMENTO 
+
 ## Tecnologias Utilizadas:
 
 ### Backend:
